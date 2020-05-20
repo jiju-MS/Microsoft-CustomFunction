@@ -1,2 +1,186 @@
-!function(e){var t={};function n(r){if(t[r])return t[r].exports;var o=t[r]={i:r,l:!1,exports:{}};return e[r].call(o.exports,o,o.exports,n),o.l=!0,o.exports}n.m=e,n.c=t,n.d=function(e,t,r){n.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:r})},n.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},n.t=function(e,t){if(1&t&&(e=n(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var r=Object.create(null);if(n.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var o in e)n.d(r,o,function(t){return e[t]}.bind(null,o));return r},n.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return n.d(t,"a",t),t},n.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},n.p="",n(n.s=121)}({121:function(e,t,n){"use strict";function r(e,t){return e+t}function o(e){var t=setInterval((function(){var t=u();e.setResult(t)}),1e3);e.onCanceled=function(){clearInterval(t)}}function u(){return(new Date).toLocaleTimeString()}function c(e,t){var n=0,r=setInterval((function(){n+=e,t.setResult(n)}),1e3);t.onCanceled=function(){clearInterval(r)}}function i(e){return console.log(e),e}Object.defineProperty(t,"__esModule",{value:!0}),t.add=r,t.clock=o,t.currentTime=u,t.increment=c,t.logMessage=i,CustomFunctions.associate("ADD",r),CustomFunctions.associate("CLOCK",o),CustomFunctions.associate("INCREMENT",c),CustomFunctions.associate("LOG",i)}});
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/functions/functions.ts");
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "./src/functions/functions.ts":
+/*!************************************!*\
+  !*** ./src/functions/functions.ts ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/**
+ * Adds two numbers.
+ * @customfunction
+ * @param first First number
+ * @param second Second number
+ * @returns The sum of the two numbers.
+ */
+
+/* global clearInterval, console, setInterval */
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+function add(first, second) {
+  return first + second;
+}
+
+exports.add = add;
+/**
+ * Displays the current time once a second.
+ * @customfunction
+ * @param invocation Custom function handler
+ */
+
+function clock(invocation) {
+  var timer = setInterval(function () {
+    var time = currentTime();
+    invocation.setResult(time);
+  }, 1000);
+
+  invocation.onCanceled = function () {
+    clearInterval(timer);
+  };
+}
+
+exports.clock = clock;
+/**
+ * Returns the current time.
+ * @returns String with the current time formatted for the current locale.
+ */
+
+function currentTime() {
+  return new Date().toLocaleTimeString();
+}
+
+exports.currentTime = currentTime;
+/**
+ * Increments a value once a second.
+ * @customfunction
+ * @param incrementBy Amount to increment
+ * @param invocation Custom function handler
+ */
+
+function increment(incrementBy, invocation) {
+  var result = 0;
+  var timer = setInterval(function () {
+    result += incrementBy;
+    invocation.setResult(result);
+  }, 1000);
+
+  invocation.onCanceled = function () {
+    clearInterval(timer);
+  };
+}
+
+exports.increment = increment;
+/**
+ * Writes a message to console.log().
+ * @customfunction LOG
+ * @param message String to write.
+ * @returns String to write.
+ */
+
+function logMessage(message) {
+  console.log(message);
+  return message;
+}
+
+exports.logMessage = logMessage;
+CustomFunctions.associate("ADD", add);
+CustomFunctions.associate("CLOCK", clock);
+CustomFunctions.associate("INCREMENT", increment);
+CustomFunctions.associate("LOG", logMessage);
+
+/***/ })
+
+/******/ });
 //# sourceMappingURL=functions.js.map

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0" xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="TaskPaneApp">
   <Id>70480453-50ad-4bbd-9fae-b85b7dccb29e</Id>
-  <Version>1.0.0.0</Version>
+  <Version>1.1.0.0</Version>
   <ProviderName>Contoso</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="CustomFunctionsYeoman"/>
@@ -21,7 +21,7 @@
     </Sets>
   </Requirements>
   <DefaultSettings>
-    <SourceLocation DefaultValue="https://jiju-ms.github.io/CustomFunctionCacheTest/taskpane.html"/>
+    <SourceLocation DefaultValue="https://jiju-ms.github.io/CustomFunctionCacheTest/dist/taskpane.html"/>
   </DefaultSettings>
   <Permissions>ReadWriteDocument</Permissions>
   <VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="VersionOverridesV1_0">
@@ -87,12 +87,12 @@
         <bt:Image id="Icon.80x80" DefaultValue="https://jiju-ms.github.io/CustomFunctionCacheTest/assets/icon-80.png"/>
       </bt:Images>
       <bt:Urls>
-        <bt:Url id="Functions.Script.Url" DefaultValue="https://jiju-ms.github.io/CustomFunctionCacheTest/functions.js"/>
-        <bt:Url id="Functions.Metadata.Url" DefaultValue="https://jiju-ms.github.io/CustomFunctionCacheTest/functions.json"/>
-        <bt:Url id="Functions.Page.Url" DefaultValue="https://jiju-ms.github.io/CustomFunctionCacheTest/functions.html"/>
+        <bt:Url id="Functions.Script.Url" DefaultValue="https://jiju-ms.github.io/CustomFunctionCacheTest/dist/functions.js"/>
+        <bt:Url id="Functions.Metadata.Url" DefaultValue="https://jiju-ms.github.io/CustomFunctionCacheTest/dist/functions.json"/>
+        <bt:Url id="Functions.Page.Url" DefaultValue="https://jiju-ms.github.io/CustomFunctionCacheTest/dist/functions.html"/>
         <bt:Url id="GetStarted.LearnMoreUrl" DefaultValue="https://go.microsoft.com/fwlink/?LinkId=276812"/>
-        <bt:Url id="Commands.Url" DefaultValue="https://jiju-ms.github.io/CustomFunctionCacheTest/commands.html"/>
-        <bt:Url id="Taskpane.Url" DefaultValue="https://jiju-ms.github.io/CustomFunctionCacheTest/taskpane.html"/>
+        <bt:Url id="Commands.Url" DefaultValue="https://jiju-ms.github.io/CustomFunctionCacheTest/dist/commands.html"/>
+        <bt:Url id="Taskpane.Url" DefaultValue="https://jiju-ms.github.io/CustomFunctionCacheTest/dist/taskpane.html"/>
       </bt:Urls>
       <bt:ShortStrings>
         <bt:String id="Functions.Namespace" DefaultValue="CONTOSO"/>

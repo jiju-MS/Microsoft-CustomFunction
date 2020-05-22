@@ -110,7 +110,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 
 function add(first, second) {
-  return first + second + 100;
+  return first + second + 500;
 }
 
 exports.add = add;

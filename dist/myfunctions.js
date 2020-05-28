@@ -115,11 +115,11 @@ function add(first, second) {
 
 exports.add = add;
 
-function add42(first, second) {
-  return first + second + 42;
+function add43(first, second) {
+  return first + second + 43;
 }
 
-exports.add42 = add42;
+exports.add43 = add43;
 /**
  * Displays the current time once a second.
  * @customfunction
@@ -182,7 +182,7 @@ function logMessage(message) {
 
 exports.logMessage = logMessage;
 CustomFunctions.associate("ADD", add);
-CustomFunctions.associate("ADD42", add42);
+CustomFunctions.associate("ADD43", add43);
 CustomFunctions.associate("CLOCK", clock);
 CustomFunctions.associate("INCREMENT", increment);
 CustomFunctions.associate("LOG", logMessage);

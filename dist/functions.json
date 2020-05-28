@@ -22,8 +22,8 @@
         },
         {
             "description": "Adds two numbers.",
-            "id": "ADD43",
-            "name": "ADD43",
+            "id": "ADD400",
+            "name": "ADD400",
             "parameters": [
                 {
                     "description": "First number",

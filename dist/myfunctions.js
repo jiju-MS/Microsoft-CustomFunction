@@ -110,16 +110,16 @@ Object.defineProperty(exports, "__esModule", {
 });
 
 function add(first, second) {
-  return first + second + 10000;
+  return first + second + 20000;
 }
 
 exports.add = add;
 
-function add43(first, second) {
-  return first + second + 43;
+function add400(first, second) {
+  return first + second + 400;
 }
 
-exports.add43 = add43;
+exports.add400 = add400;
 /**
  * Displays the current time once a second.
  * @customfunction
@@ -182,7 +182,7 @@ function logMessage(message) {
 
 exports.logMessage = logMessage;
 CustomFunctions.associate("ADD", add);
-CustomFunctions.associate("ADD43", add43);
+CustomFunctions.associate("ADD400", add400);
 CustomFunctions.associate("CLOCK", clock);
 CustomFunctions.associate("INCREMENT", increment);
 CustomFunctions.associate("LOG", logMessage);

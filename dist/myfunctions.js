@@ -175,6 +175,75 @@ exports.increment = increment;
  * @returns String to write.
  */
 
+function customErrorInputInvalid(numberAllowError, stringAllowError, boolAllowError) {
+	var ret = [];
+	var oneRow = [];
+
+	if (numberAllowError instanceof CustomFunctions.Error) {
+		oneRow.push(numberAllowError.code + " detected");
+	}
+	else {
+		oneRow.push(numberAllowError);
+	}
+
+	if (stringAllowError instanceof CustomFunctions.Error) {
+		oneRow.push(stringAllowError.code + " detected");
+	}
+	else {
+		oneRow.push(stringAllowError);
+	}
+
+	if (boolAllowError instanceof CustomFunctions.Error) {
+		oneRow.push(boolAllowError.code + " detected");
+	}
+	else {
+		oneRow.push(boolAllowError);
+	}
+
+	ret.push(oneRow);
+	return ret;
+}
+
+exports.customErrorInputInvalid = customErrorInputInvalid;
+
+function customErrorInputArray(inputAllowError) {
+	var ret = [];
+	for (i = 0; i < inputAllowError.length; ++i) {
+		var oneRow = [];
+		for (j = 0; j < inputAllowError[i].length; ++j) {
+			if (inputAllowError[i][j] instanceof CustomFunctions.Error) {
+				oneRow.push(inputAllowError[i][j].code + " detected");
+			}
+			else {
+				oneRow.push(inputAllowError[i][j]);
+			}
+		}
+		ret.push(oneRow);
+	}
+	return ret;
+}
+
+exports.customErrorInputArray = customErrorInputArray;
+
+function customErrorInputInvalidArray(inputAllowError) {
+	var ret = [];
+	for (i = 0; i < inputAllowError.length; ++i) {
+		var oneRow = [];
+		for (j = 0; j < inputAllowError[i].length; ++j) {
+			if (inputAllowError[i][j] instanceof CustomFunctions.Error) {
+				oneRow.push(inputAllowError[i][j].code + " detected");
+			}
+			else {
+				oneRow.push(inputAllowError[i][j]);
+			}
+		}
+		ret.push(oneRow);
+	}
+	return ret;
+}
+
+exports.customErrorInputInvalidArray = customErrorInputInvalidArray;
+
 function logMessage(message) {
   console.log(message);
   return message;
@@ -186,7 +255,9 @@ CustomFunctions.associate("ADD400", add400);
 CustomFunctions.associate("CLOCK", clock);
 CustomFunctions.associate("INCREMENT", increment);
 CustomFunctions.associate("LOG", logMessage);
-
+CustomFunctions.associate("customErrorInputInvalid", customErrorInputInvalid);
+CustomFunctions.associate("customErrorInputArray", customErrorInputArray);
+CustomFunctions.associate("customErrorInputInvalidArray", customErrorInputInvalidArray);
 /***/ })
 
 /******/ });

@@ -1,4 +1,5 @@
 {
+    "allowErrorForDataTypeAny":true,
     "functions": [
         {
             "description": "Adds two numbers.",
@@ -21,69 +22,90 @@
             }
         },
         {
-            "description": "Adds two numbers.",
-            "id": "ADD400",
-            "name": "ADD400",
+            "id": "customErrorInput",
+            "name": "customErrorInput",
+            "description": "Custom errors as input value",
+            "helpUrl": "http://dev.office.com",
             "parameters": [
-                {
-                    "description": "First number",
-                    "name": "first",
-                    "type": "number"
-                },
-                {
-                    "description": "Second number",
-                    "name": "second",
-                    "type": "number"
-                }
-            ],
-            "result": {
-                "type": "number"
-            }
-        },
-        {
-            "description": "Displays the current time once a second.",
-            "id": "CLOCK",
-            "name": "CLOCK",
-            "options": {
-                "stream": true
+            {
+                "name": "inputAllowError",
+                "description": "allow error",
+                "type": "any"
             },
-            "parameters": [],
-            "result": {
-                "type": "string"
+            {
+                "name": "inputAllowErrorOptional",
+                "description": "allow error optional",
+                "type": "any",
+                "optional": true
+            },
+            {
+                "name": "inputAllowErrorRepeating",
+                "description": "allow error repeating",
+                "type": "any",
+                "optional": true,
+                "repeating": true
             }
+            ]
         },
         {
-            "description": "Increments a value once a second.",
-            "id": "INCREMENT",
-            "name": "INCREMENT",
-            "options": {
-                "stream": true
+            "id": "customErrorInputInvalid",
+            "name": "customErrorInputInvalid",
+            "description": "Custom errors as input value in some paramters",
+            "helpUrl": "http://dev.office.com",
+            "result": {
+            "dimensionality": "matrix"
             },
             "parameters": [
-                {
-                    "description": "Amount to increment",
-                    "name": "incrementBy",
-                    "type": "number"
-                }
-            ],
-            "result": {
+            {
+                "name": "numberAllowError",
+                "description": "allow error when type is number",
                 "type": "number"
+            },
+            {
+                "name": "stringAllowError",
+                "description": "allow error when type is string",
+                "type": "string"
+            },
+            {
+                "name": "boolAllowError",
+                "description": "allow error when type is bool",
+                "type": "boolean"
             }
+            ]
         },
         {
-            "description": "Writes a message to console.log().",
-            "id": "LOG",
-            "name": "LOG",
-            "parameters": [
-                {
-                    "description": "String to write.",
-                    "name": "message",
-                    "type": "string"
-                }
-            ],
+            "id": "customErrorInputArray",
+            "name": "customErrorInputArray",
+            "description": "Custom errors as input value array",
+            "helpUrl": "http://dev.office.com",
             "result": {
-                "type": "string"
+            "dimensionality": "matrix"
+            },
+            "parameters": [
+            {
+                "name": "inputAllowError",
+                "description": "allow error",
+                "type": "any",
+                "dimensionality": "matrix"
             }
+            ]
+        },
+        {
+            "id": "customErrorInputInvalidArray",
+            "name": "customErrorInputInvalidArray",
+            "description": "Custom errors as input value array without any",
+            "helpUrl": "http://dev.office.com",
+            "result": {
+            "dimensionality": "matrix"
+            },
+            "parameters": [
+            {
+                "name": "inputAllowError",
+                "description": "allow error",
+                "type": "number",
+                "dimensionality": "matrix"
+            }
+            ]
         }
     ]
-}
+  }

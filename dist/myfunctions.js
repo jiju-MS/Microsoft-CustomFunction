@@ -168,12 +168,29 @@ function increment(incrementBy, invocation) {
 }
 
 exports.increment = increment;
-/**
- * Writes a message to console.log().
- * @customfunction LOG
- * @param message String to write.
- * @returns String to write.
- */
+
+function customErrorInput(inputAllowError, inputAllowErrorOptional, inputAllowErrorRepeating) {
+	if (inputAllowError instanceof CustomFunctions.Error) {
+		return inputAllowError.code + " detected";
+	}
+	else if (inputAllowErrorOptional instanceof CustomFunctions.Error) {
+		return inputAllowErrorOptional.code + " detected";
+	}
+	else if (Array.isArray(inputAllowErrorRepeating)){
+		for (let i = 0; i < inputAllowErrorRepeating.length; i++) {
+			if (inputAllowErrorRepeating[i] instanceof CustomFunctions.Error) {
+				return inputAllowErrorRepeating[i].code + " detected";
+			}
+		}
+
+		return "no error detected";
+	}
+	else {
+		return "no error detected";
+	}
+}
+
+exports.customErrorInput = customErrorInput;
 
 function customErrorInputInvalid(numberAllowError, stringAllowError, boolAllowError) {
 	var ret = [];
@@ -249,12 +266,20 @@ function logMessage(message) {
   return message;
 }
 
+/**
+ * Writes a message to console.log().
+ * @customfunction LOG
+ * @param message String to write.
+ * @returns String to write.
+ */
 exports.logMessage = logMessage;
+
 CustomFunctions.associate("ADD", add);
 CustomFunctions.associate("ADD400", add400);
 CustomFunctions.associate("CLOCK", clock);
 CustomFunctions.associate("INCREMENT", increment);
 CustomFunctions.associate("LOG", logMessage);
+CustomFunctions.associate("customErrorInput", customErrorInput);
 CustomFunctions.associate("customErrorInputInvalid", customErrorInputInvalid);
 CustomFunctions.associate("customErrorInputArray", customErrorInputArray);
 CustomFunctions.associate("customErrorInputInvalidArray", customErrorInputInvalidArray);

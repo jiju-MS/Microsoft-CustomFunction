@@ -244,9 +244,9 @@ exports.customErrorInputArray = customErrorInputArray;
 
 function customErrorInputInvalidArray(inputAllowError) {
 	var ret = [];
-	for (i = 0; i < inputAllowError.length; ++i) {
+	for (var i = 0; i < inputAllowError.length; ++i) {
 		var oneRow = [];
-		for (j = 0; j < inputAllowError[i].length; ++j) {
+		for (var j = 0; j < inputAllowError[i].length; ++j) {
 			if (inputAllowError[i][j] instanceof CustomFunctions.Error) {
 				oneRow.push(inputAllowError[i][j].code + " detected");
 			}

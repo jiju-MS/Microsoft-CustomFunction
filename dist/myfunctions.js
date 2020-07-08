@@ -240,6 +240,100 @@ function customErrorOut(errorCase) {
 			throw new Error("This message should not appear in UI"); // #VALUE!
 		}
 		break;
+		// case 11: {
+		// 	return new Promise(function(resolve) {
+		// 		var error = new CustomFunctions.Error(
+		// 		  CustomFunctions.ErrorCode.nullReference // #N/A!
+		// 		);
+		// 		throw error;
+		// 		setTimeout(function () {
+		// 		  resolve(error.code);
+		// 		}, 1000);
+		// 	  });
+		// }
+		// break;
+		default: {
+			var error = new CustomFunctions.Error(
+				CustomFunctions.ErrorCode.notAvailable,
+				"An unknown error case was detected in customErrorOut"
+			);
+			throw error;
+		}
+		break;
+	}
+}
+
+function customErrorOut(errorCase) {
+	switch (errorCase) {
+		case 1: {
+			var error = new CustomFunctions.Error(
+				CustomFunctions.ErrorCode.notAvailable,	// #N/A
+				"An error *case 1* was detected in customErrorOut"
+			);
+			throw error;
+		}
+		break;
+		case 2: {
+			var error = new CustomFunctions.Error(
+				CustomFunctions.ErrorCode.invalidValue, // #VALUE!
+				"An error *case 2* was detected in customErrorOut"
+			);
+			throw error;
+		}
+		break;
+		case 3: {
+			var error = new CustomFunctions.Error(
+				CustomFunctions.ErrorCode.divisionByZero, // #DIV/0!
+				"This message should not appear in UI"
+			);
+			throw error;
+		}
+		break;
+		case 4: {
+			var error = new CustomFunctions.Error(
+				CustomFunctions.ErrorCode.invalidNumber, // #NUM!
+				"This message should not appear in UI"
+			);
+			throw error;
+		}
+		break;
+		case 5: {
+			var error = new CustomFunctions.Error(
+				CustomFunctions.ErrorCode.nullReference, // #NULL!
+				"This message should not appear in UI"
+			);
+			throw error;
+		}
+		break;
+		case 6: {
+			var error = new CustomFunctions.Error(
+				CustomFunctions.ErrorCode.notAvailable // #N/A!
+			);
+			throw error;
+		}
+		break;
+		case 7: {
+			var error = new CustomFunctions.Error(); // #VALUE!
+			throw error;
+		}
+		break;
+		case 8: {
+			var error = new CustomFunctions.Error(
+				undefined, // #VALUE!
+				"An error *case 8* was detected in customErrorOut"
+			);
+			throw error;
+		}
+		break;
+		case 9: {
+			var error = new CustomFunctions.Error(new Error()); // #VALUE!
+			throw error;
+		}
+		break;
+		case 10: {
+			throw new Error("This message should not appear in UI"); // #VALUE!
+		}
+		break;
 		case 11: {
 			return new Promise(function(resolve) {
 				var error = new CustomFunctions.Error(
@@ -262,6 +356,8 @@ function customErrorOut(errorCase) {
 		break;
 	}
 }
+
+exports.customErrorOut = customErrorOut;
 
 function customErrorReturn(errorCase) {
 	switch (errorCase) {
@@ -550,6 +646,7 @@ CustomFunctions.associate("ADD400", add400);
 CustomFunctions.associate("CLOCK", clock);
 CustomFunctions.associate("INCREMENT", increment);
 CustomFunctions.associate("LOG", logMessage);
+CustomFunctions.associate("customErrorOut", customErrorOut);
 CustomFunctions.associate("customErrorReturn", customErrorReturn);
 CustomFunctions.associate("customErrorReturnArray", customErrorReturnArray);
 CustomFunctions.associate("customErrorInput", customErrorInput);

@@ -22,6 +22,19 @@
             }
         },
         {
+            "id": "customErrorOut",
+            "name": "customErrorOut",
+            "description": "Custom errors out",
+            "helpUrl": "http://dev.office.com",
+            "parameters": [
+              {
+                "name": "errorCase",
+                "description": "error case",
+                "type": "number"
+              }
+            ]
+        },
+        {
             "id": "customErrorReturn",
             "name": "customErrorReturn",
             "description": "Custom errors as return value",

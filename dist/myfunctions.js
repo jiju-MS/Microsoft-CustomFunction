@@ -169,6 +169,217 @@ function increment(incrementBy, invocation) {
 
 exports.increment = increment;
 
+function customErrorOut(errorCase) {
+	switch (errorCase) {
+		case 1: {
+			var error = new CustomFunctions.Error(
+				CustomFunctions.ErrorCode.notAvailable,	// #N/A
+				"An error *case 1* was detected in customErrorOut"
+			);
+			throw error;
+		}
+		break;
+		case 2: {
+			var error = new CustomFunctions.Error(
+				CustomFunctions.ErrorCode.invalidValue, // #VALUE!
+				"An error *case 2* was detected in customErrorOut"
+			);
+			throw error;
+		}
+		break;
+		case 3: {
+			var error = new CustomFunctions.Error(
+				CustomFunctions.ErrorCode.divisionByZero, // #DIV/0!
+				"This message should not appear in UI"
+			);
+			throw error;
+		}
+		break;
+		case 4: {
+			var error = new CustomFunctions.Error(
+				CustomFunctions.ErrorCode.invalidNumber, // #NUM!
+				"This message should not appear in UI"
+			);
+			throw error;
+		}
+		break;
+		case 5: {
+			var error = new CustomFunctions.Error(
+				CustomFunctions.ErrorCode.nullReference, // #NULL!
+				"This message should not appear in UI"
+			);
+			throw error;
+		}
+		break;
+		case 6: {
+			var error = new CustomFunctions.Error(
+				CustomFunctions.ErrorCode.notAvailable // #N/A!
+			);
+			throw error;
+		}
+		break;
+		case 7: {
+			var error = new CustomFunctions.Error(); // #VALUE!
+			throw error;
+		}
+		break;
+		case 8: {
+			var error = new CustomFunctions.Error(
+				undefined, // #VALUE!
+				"An error *case 8* was detected in customErrorOut"
+			);
+			throw error;
+		}
+		break;
+		case 9: {
+			var error = new CustomFunctions.Error(new Error()); // #VALUE!
+			throw error;
+		}
+		break;
+		case 10: {
+			throw new Error("This message should not appear in UI"); // #VALUE!
+		}
+		break;
+		case 11: {
+			return new Promise(function(resolve) {
+				var error = new CustomFunctions.Error(
+				  CustomFunctions.ErrorCode.nullReference // #N/A!
+				);
+				throw error;
+				setTimeout(function () {
+				  resolve(error.code);
+				}, 1000);
+			  });
+		}
+		break;
+		default: {
+			var error = new CustomFunctions.Error(
+				CustomFunctions.ErrorCode.notAvailable,
+				"An unknown error case was detected in customErrorOut"
+			);
+			throw error;
+		}
+		break;
+	}
+}
+
+function customErrorReturn(errorCase) {
+	switch (errorCase) {
+		case 1: {
+			var error = new CustomFunctions.Error(
+				CustomFunctions.ErrorCode.notAvailable,	// #N/A
+				"An error *case 1* was detected in customErrorReturn"
+			);
+			return error;
+		}
+		case 2: {
+			var error = new CustomFunctions.Error(
+				CustomFunctions.ErrorCode.invalidValue, // #VALUE!
+				"An error *case 2* was detected in customErrorReturn"
+			);
+			return error;
+		}
+		case 3: {
+			var error = new CustomFunctions.Error(
+				CustomFunctions.ErrorCode.divisionByZero, // #DIV/0!
+				"This message should not appear in UI"
+			);
+			return error;
+		}
+		case 4: {
+			var error = new CustomFunctions.Error(
+				CustomFunctions.ErrorCode.invalidNumber, // #NUM!
+				"This message should not appear in UI"
+			);
+			return error;
+		}
+		case 5: {
+			var error = new CustomFunctions.Error(
+				CustomFunctions.ErrorCode.nullReference, // #NULL!
+				"This message should not appear in UI"
+			);
+			return error;
+		}
+		case 6: {
+			var error = new CustomFunctions.Error(
+				CustomFunctions.ErrorCode.notAvailable // #N/A!
+			);
+			return error;
+		}
+		case 7: {
+			var error = new CustomFunctions.Error(); // #VALUE!
+			return error;
+		}
+		case 8: {
+			var error = new CustomFunctions.Error(
+				undefined, // #VALUE!
+				"An error *case 8* was detected in customErrorReturn"
+			);
+			return error;
+		}
+		case 9: {
+			var error = new CustomFunctions.Error(
+				"Customized", // #VALUE!
+				"This message should not appear in UI"
+			);
+			return error;
+		}
+		case 10:{
+			var error = new CustomFunctions.Error(new Error()); // #VALUE!
+			return error;
+		}
+		case 11: {
+			return new Error("This message should not appear in UI"); // #VALUE!
+		}
+		case 12: {
+			var error = new CustomFunctions.Error(
+				CustomFunctions.ErrorCode.invalidName // #NAME?
+			);
+			return error;
+		}
+		case 13: {
+			var error = new CustomFunctions.Error(
+				CustomFunctions.ErrorCode.invalidReference // #REF!
+			);
+			return error;
+		}
+		default: {
+			var error = new CustomFunctions.Error(
+				CustomFunctions.ErrorCode.notAvailable,
+				"An unknown error case was detected in customErrorReturn"
+			);
+			return error;
+		}
+	}
+}
+
+exports.customErrorReturn = customErrorReturn;
+
+function customErrorReturnArray(errorCase) {
+	switch (errorCase) {
+		case 1: {
+			var error = new CustomFunctions.Error(
+				CustomFunctions.ErrorCode.notAvailable,	// #N/A
+				"An error *case 1* was detected in customErrorReturnArray "
+			);
+			return [['Hello'],[error]];
+		}
+		case 2: {
+			var error1 = new CustomFunctions.Error(
+				CustomFunctions.ErrorCode.notAvailable,	// #N/A
+				"An error *case 2* was detected in customErrorReturnArray "
+			);
+			var error2 = new CustomFunctions.Error(
+				CustomFunctions.ErrorCode.invalidValue, // #VALUE!
+				"An error *case 2* was detected in customErrorReturnArray "
+			);
+			return [[error1],[error2]];
+		}
+	}
+}
+
+exports.customErrorReturnArray = customErrorReturnArray;
+
 function customErrorInput(inputAllowError, inputAllowErrorOptional, inputAllowErrorRepeating) {
 	if (inputAllowError instanceof CustomFunctions.Error) {
 		return inputAllowError.code + " detected";
@@ -339,6 +550,8 @@ CustomFunctions.associate("ADD400", add400);
 CustomFunctions.associate("CLOCK", clock);
 CustomFunctions.associate("INCREMENT", increment);
 CustomFunctions.associate("LOG", logMessage);
+CustomFunctions.associate("customErrorReturn", customErrorReturn);
+CustomFunctions.associate("customErrorReturnArray", customErrorReturnArray);
 CustomFunctions.associate("customErrorInput", customErrorInput);
 CustomFunctions.associate("customErrorInputInvalid", customErrorInputInvalid);
 CustomFunctions.associate("customErrorInputArray", customErrorInputArray);

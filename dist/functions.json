@@ -106,6 +106,154 @@
                 "dimensionality": "matrix"
             }
             ]
+        },
+        {
+            "id": "GetParameterAddresses",
+            "name": "GetParameterAddresses",
+            "description": "Get Three Parameter Addresses",
+            "helpUrl": "http://dev.office.com",
+            "result": {
+              "dimensionality": "matrix"
+            },
+            "parameters": [
+              {
+                "name": "firstParameter",
+                "description": "First Parameter",
+                "type": "string"
+              },
+              {
+                "name": "secondParameter",
+                "description": "Second Parameter",
+                "type": "string"
+              },
+              {
+                "name": "thirdParameter",
+                "description": "Third Parameter",
+                "type": "string"
+              }
+            ],
+            "options": {
+              "requiresParameterAddresses": true
+            }
+        },
+        {
+            "id": "GetParameterAddressesRepeating",
+            "name": "GetParameterAddressesRepeating",
+            "description": "Get Two Parameter Addresses And The Second One Is Repeating",
+            "helpUrl": "http://dev.office.com",
+            "result": {
+              "dimensionality": "matrix"
+            },
+            "parameters": [
+              {
+                "name": "firstParameter",
+                "description": "First Parameter",
+                "type": "string"
+              },
+              {
+                "name": "secondParameter",
+                "description": "Second Parameter That Is Repeating",
+                "type": "string",
+                "repeating": true
+              }
+            ],
+            "options": {
+              "requiresParameterAddresses": true
+            }
+        },
+        {
+            "id": "GetParameterAddressesOptional",
+            "name": "GetParameterAddressesOptional",
+            "description": "Get Two Parameter Addresses And The Second One Is Optional",
+            "helpUrl": "http://dev.office.com",
+            "result": {
+              "dimensionality": "matrix"
+            },
+            "parameters": [
+              {
+                "name": "firstParameter",
+                "description": "First Parameter",
+                "type": "string"
+              },
+              {
+                "name": "secondParameter",
+                "description": "Second Parameter That Is Optional",
+                "type": "string",
+                "optional": true
+              }
+            ],
+            "options": {
+              "requiresParameterAddresses": true
+            }
+        },
+        {
+            "id": "GetParameterAddressesRange",
+            "name": "GetParameterAddressesRange",
+            "description": "Get Two Parameter Addresses And The Second One Is Range",
+            "helpUrl": "http://dev.office.com",
+            "result": {
+              "dimensionality": "matrix"
+            },
+            "parameters": [
+              {
+                "name": "firstParameter",
+                "description": "First Parameter",
+                "type": "string"
+              },
+              {
+                "name": "secondParameter",
+                "description": "Second Parameter That Is Range",
+                "dimensionality": "matrix"
+              }
+            ],
+            "options": {
+              "requiresParameterAddresses": true
+            }
+        },
+        {
+            "id": "GetParameterAddressesFalse",
+            "name": "GetParameterAddressesFalse",
+            "description": "Get Parameter Addresses When Set False",
+            "helpUrl": "http://dev.office.com",
+            "result": {
+              "type": "string"
+            },
+            "parameters": [
+              {
+                "name": "firstParameter",
+                "description": "First Parameter",
+                "type": "string"
+              },
+              {
+                "name": "secondParameter",
+                "description": "Second Parameter",
+                "type": "string"
+              }
+            ],
+            "options": {
+              "requiresParameterAddresses": false
+            }
+        },
+        {
+            "id": "GetParameterAddressesOff",
+            "name": "GetParameterAddressesOff",
+            "description": "Get Parameter Addresses When Feature Off",
+            "helpUrl": "http://dev.office.com",
+            "result": {
+              "type": "string"
+            },
+            "parameters": [
+              {
+                "name": "firstParameter",
+                "description": "First Parameter",
+                "type": "string"
+              },
+              {
+                "name": "secondParameter",
+                "description": "Second Parameter",
+                "type": "string"
+              }
+            ]
         }
     ]
   }

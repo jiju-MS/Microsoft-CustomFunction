@@ -266,6 +266,66 @@ function logMessage(message) {
   return message;
 }
 
+function GetParameterAddresses(firstParameter, secondParameter, thirdParameter, invocationContext) {
+    var items = [
+        [invocationContext.parameterAddresses[0]],
+        [invocationContext.parameterAddresses[1]],
+        [invocationContext.parameterAddresses[2]]
+    ];
+    return items;
+}
+
+exports.GetParameterAddresses = GetParameterAddresses;
+ 
+
+function GetParameterAddressesRepeating(firstParameter, secondParameter, invocationContext) {
+    var resultArray = [];
+    for (let i = 0; i < invocationContext.parameterAddresses.length; i++)
+    {
+        var parameterAddresses = [invocationContext.parameterAddresses[i]];
+        resultArray.push(parameterAddresses);
+    }
+    return resultArray;
+}
+
+exports.GetParameterAddressesRepeating = GetParameterAddressesRepeating;
+
+function GetParameterAddressesOptional(firstParameter, secondParameter, invocationContext) {
+	var resultArray = [];
+    for (let i = 0; i < invocationContext.parameterAddresses.length; i++)
+    {
+		var parameterAddresses = [invocationContext.parameterAddresses[i]];
+        resultArray.push(parameterAddresses);
+    }
+    return resultArray;
+}
+
+exports.GetParameterAddressesOptional = GetParameterAddressesOptional;
+
+
+function GetParameterAddressesRange(firstParameter, secondParameter, invocationContext) {
+	var items = [
+		[invocationContext.parameterAddresses[0]],
+        [invocationContext.parameterAddresses[1]]
+    ];
+    return items;
+}
+
+exports.GetParameterAddressesRange = GetParameterAddressesRange;
+
+
+function GetParameterAddressesFalse(firstParameter, secondParameter, invocationContext) {
+	return invocationContext.parameterAddresses;
+}
+
+exports.GetParameterAddressesFalse = GetParameterAddressesFalse;
+
+
+function GetParameterAddressesOff(firstParameter, secondParameter, invocationContext) {
+	return invocationContext.parameterAddresses;
+}
+
+exports.GetParameterAddressesOff = GetParameterAddressesOff;
 /**
  * Writes a message to console.log().
  * @customfunction LOG
@@ -282,6 +342,12 @@ CustomFunctions.associate("LOG", logMessage);
 CustomFunctions.associate("customErrorInput", customErrorInput);
 CustomFunctions.associate("customErrorInputInvalid", customErrorInputInvalid);
 CustomFunctions.associate("customErrorInputArray", customErrorInputArray);
+CustomFunctions.associate("GetParameterAddresses", GetParameterAddresses);
+CustomFunctions.associate("GetParameterAddressesRepeating", GetParameterAddressesRepeating);
+CustomFunctions.associate("GetParameterAddressesOptional", GetParameterAddressesOptional);
+CustomFunctions.associate("GetParameterAddressesRange", GetParameterAddressesRange);
+CustomFunctions.associate("GetParameterAddressesFalse", GetParameterAddressesFalse);
+CustomFunctions.associate("GetParameterAddressesOff", GetParameterAddressesOff);
 CustomFunctions.associate("customErrorInputInvalidArray", customErrorInputInvalidArray);
 /***/ })
 

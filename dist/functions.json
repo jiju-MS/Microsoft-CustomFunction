@@ -94,6 +94,9 @@
             "name": "customErrorInput2",
             "description": "Custom errors as input value",
             "helpUrl": "http://dev.office.com",
+            "result": {
+                "dimensionality": "matrix"
+            },
             "parameters": [
             {
                 "name": "inputAllowError",

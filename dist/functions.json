@@ -90,6 +90,29 @@
             ]
         },
         {
+            "id": "customErrorInput2",
+            "name": "customErrorInput2",
+            "description": "Custom errors as input value",
+            "helpUrl": "http://dev.office.com",
+            "parameters": [
+            {
+                "name": "inputAllowError",
+                "description": "allow error",
+                "type": "any"
+            },
+            {
+                "name": "inputAllowErrorOptional",
+                "description": "allow error optional",
+                "type": "any",
+            },
+            {
+                "name": "inputAllowErrorRepeating",
+                "description": "allow error repeating",
+                "type": "any",
+            }
+            ]
+        },
+        {
             "id": "customErrorInputInvalid",
             "name": "customErrorInputInvalid",
             "description": "Custom errors as input value in some paramters",

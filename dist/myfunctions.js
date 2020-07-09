@@ -633,6 +633,36 @@ function GetParameterAddressesOff(firstParameter, secondParameter, invocationCon
 }
 
 exports.GetParameterAddressesOff = GetParameterAddressesOff;
+
+function customErrorInput2(inputAllowError, inputAllowErrorOptional, inputAllowErrorRepeating) {
+	var ret = [];
+	var oneRow = [];
+	if (inputAllowError instanceof CustomFunctions.Error) {
+		oneRow.push(inputAllowError.code + " detected");
+	}
+	else
+	{
+		oneRow.push(inputAllowError);
+	}
+
+	if (inputAllowErrorOptional instanceof CustomFunctions.Error) {
+		oneRow.push(inputAllowErrorOptional.code + " detected");
+	}
+	else
+	{
+		oneRow.push(inputAllowErrorOptional);
+	}
+
+	if (inputAllowErrorRepeating instanceof CustomFunctions.Error) {
+		oneRow.push(inputAllowErrorRepeating.code + " detected");
+	}
+	else
+	{
+		oneRow.push(inputAllowErrorRepeating);
+	}
+}
+
+exports.customErrorInput2 = customErrorInput2;
 /**
  * Writes a message to console.log().
  * @customfunction LOG
@@ -659,6 +689,7 @@ CustomFunctions.associate("GetParameterAddressesRange", GetParameterAddressesRan
 CustomFunctions.associate("GetParameterAddressesFalse", GetParameterAddressesFalse);
 CustomFunctions.associate("GetParameterAddressesOff", GetParameterAddressesOff);
 CustomFunctions.associate("customErrorInputInvalidArray", customErrorInputInvalidArray);
+CustomFunctions.associate("customErrorInput2", customErrorInput2);
 /***/ })
 
 /******/ });

@@ -103,12 +103,12 @@
             {
                 "name": "inputAllowErrorOptional",
                 "description": "allow error optional",
-                "type": "any",
+                "type": "any"
             },
             {
                 "name": "inputAllowErrorRepeating",
                 "description": "allow error repeating",
-                "type": "any",
+                "type": "any"
             }
             ]
         },

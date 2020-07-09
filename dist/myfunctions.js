@@ -660,6 +660,9 @@ function customErrorInput2(inputAllowError, inputAllowErrorOptional, inputAllowE
 	{
 		oneRow.push(inputAllowErrorRepeating);
 	}
+
+	ret.push(oneRow);
+	return ret;
 }
 
 exports.customErrorInput2 = customErrorInput2;

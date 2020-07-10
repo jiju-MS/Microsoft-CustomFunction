@@ -478,15 +478,15 @@ exports.customErrorReturnArray = customErrorReturnArray;
 
 function customErrorInput(inputAllowError, inputAllowErrorOptional, inputAllowErrorRepeating) {
 	if (inputAllowError instanceof CustomFunctions.Error) {
-		return inputAllowError.code + " detected";
+		return inputAllowError.code + " detected in param1";
 	}
 	else if (inputAllowErrorOptional instanceof CustomFunctions.Error) {
-		return inputAllowErrorOptional.code + " detected";
+		return inputAllowErrorOptional.code + " detected in param2";
 	}
 	else if (Array.isArray(inputAllowErrorRepeating)){
 		for (let i = 0; i < inputAllowErrorRepeating.length; i++) {
 			if (inputAllowErrorRepeating[i] instanceof CustomFunctions.Error) {
-				return inputAllowErrorRepeating[i].code + " detected";
+				return inputAllowErrorRepeating[i].code + " detected in param repeating";
 			}
 		}
 

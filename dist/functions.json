@@ -103,6 +103,45 @@
             ]
         },
         {
+            "id": "customErrorTest2",
+            "name": "customErrorTest2",
+            "description": "Custom errors as input value",
+            "helpUrl": "http://dev.office.com",
+            "parameters": [
+            {
+                "name": "singleAny",
+                "description": "allow error",
+                "type": "any"
+            },
+            {
+                "name": "singleString",
+                "description": "allow error optional",
+                "type": "string"
+            },
+            {
+                "name": "singleDefault",
+                "description": "allow error optional"
+            },
+            {
+                "name": "multipleAny",
+                "description": "allow error optional",
+                "type": "any",
+                "dimensionality": "matrix"
+            },
+            {
+                "name": "multipleDefault",
+                "description": "allow error optional",
+                "dimensionality": "matrix"
+            },
+            {
+                "name": "multipleString",
+                "description": "allow error optional",
+                "type": "string",
+                "dimensionality": "matrix"
+            }
+            ]
+        },
+        {
             "id": "customErrorInput",
             "name": "customErrorInput",
             "description": "Custom errors as input value",

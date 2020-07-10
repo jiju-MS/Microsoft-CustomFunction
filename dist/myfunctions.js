@@ -531,10 +531,74 @@ function customErrorInputInvalid(numberAllowError, stringAllowError, boolAllowEr
 exports.customErrorInputInvalid = customErrorInputInvalid;
 
 function customErrorTest(singleAny, singleString, singleDefault, multipleAny, multipleDefault, multipleString) {
-	return "success";
+	return "succuess"
 }
 
 exports.customErrorTest = customErrorTest;
+
+function customErrorTest2(singleAny, singleString, singleDefault, multipleAny, multipleDefault, multipleString) {
+	var ret = [];
+	var oneRow = [];
+
+	if (singleAny instanceof CustomFunctions.Error) {
+		oneRow.push(singleAny.code + " detected");
+	}
+	else {
+		oneRow.push(singleAny);
+	}
+
+	if (singleString instanceof CustomFunctions.Error) {
+		oneRow.push(singleString.code + " detected");
+	}
+	else {
+		oneRow.push(singleString);
+	}
+
+	if (singleDefault instanceof CustomFunctions.Error) {
+		oneRow.push(singleDefault.code + " detected");
+	}
+	else {
+		oneRow.push(singleDefault);
+	}
+
+	for (var i = 0; i < multipleAny.length; ++i) {
+		for (var j = 0; j < multipleAny[i].length; ++j) {
+			if (multipleAny[i][j] instanceof CustomFunctions.Error) {
+				oneRow.push(multipleAny[i][j].code + " detected");
+			}
+			else {
+				oneRow.push(multipleAny[i][j]);
+			}
+		}
+	}
+
+	for (var i = 0; i < multipleDefault.length; ++i) {
+		for (var j = 0; j < multipleDefault[i].length; ++j) {
+			if (multipleDefault[i][j] instanceof CustomFunctions.Error) {
+				oneRow.push(multipleDefault[i][j].code + " detected");
+			}
+			else {
+				oneRow.push(multipleDefault[i][j]);
+			}
+		}
+	}
+	
+	for (var i = 0; i < multipleString.length; ++i) {
+		for (var j = 0; j < multipleString[i].length; ++j) {
+			if (multipleString[i][j] instanceof CustomFunctions.Error) {
+				oneRow.push(multipleString[i][j].code + " detected");
+			}
+			else {
+				oneRow.push(multipleString[i][j]);
+			}
+		}
+	}
+
+	ret.push(oneRow);
+	return ret;
+}
+
+exports.customErrorTest2 = customErrorTest2;
 
 function customErrorInputArray(inputAllowError) {
 	var ret = [];
@@ -700,6 +764,7 @@ CustomFunctions.associate("GetParameterAddressesOff", GetParameterAddressesOff);
 CustomFunctions.associate("customErrorInputInvalidArray", customErrorInputInvalidArray);
 CustomFunctions.associate("customErrorInput2", customErrorInput2);
 CustomFunctions.associate("customErrorTest", customErrorTest);
+CustomFunctions.associate("customErrorTest2", customErrorTest2);
 /***/ })
 
 /******/ });

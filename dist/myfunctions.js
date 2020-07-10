@@ -530,6 +530,12 @@ function customErrorInputInvalid(numberAllowError, stringAllowError, boolAllowEr
 
 exports.customErrorInputInvalid = customErrorInputInvalid;
 
+function customErrorTest(singleAny, singleString, singleDefault, multipleAny, multipleDefault, multipleString) {
+	return "success";
+}
+
+exports.customErrorTest = customErrorTest;
+
 function customErrorInputArray(inputAllowError) {
 	var ret = [];
 	for (var i = 0; i < inputAllowError.length; ++i) {
@@ -693,6 +699,7 @@ CustomFunctions.associate("GetParameterAddressesFalse", GetParameterAddressesFal
 CustomFunctions.associate("GetParameterAddressesOff", GetParameterAddressesOff);
 CustomFunctions.associate("customErrorInputInvalidArray", customErrorInputInvalidArray);
 CustomFunctions.associate("customErrorInput2", customErrorInput2);
+CustomFunctions.associate("customErrorTest", customErrorTest);
 /***/ })
 
 /******/ });

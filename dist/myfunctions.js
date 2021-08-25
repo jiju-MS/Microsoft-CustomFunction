@@ -736,6 +736,274 @@ function customErrorInput2(inputAllowError, inputAllowErrorOptional, inputAllowE
 }
 
 exports.customErrorInput2 = customErrorInput2;
+
+function customFunctionReturnEntity(entityCase) {
+	switch (entityCase) {
+		case 1: {
+			var properties = {
+				"Category": "Communications",
+				"SomeNumber": 1234
+			};
+			var Entity = new CustomFunctions.Entity("[Communications] XYZ Telecom", properties);
+			return Entity;
+		}
+
+		case 2: {
+			var arrayProperties = {
+				"Children": [
+					["Mary"],
+					["Jane"]
+				],
+				"Zip Code": 9001
+			};
+			var Entity = new CustomFunctions.Entity("Bob", arrayProperties);
+			return Entity;
+		}
+
+		case 3: {
+			var nestedProperties = {
+				"foo": "bar",
+				"price": 5
+			};
+
+			var nestedEntity = new CustomFunctions.Entity("Nested Entity", nestedProperties);
+
+			var parentProperties = {
+				"nested": nestedEntity
+			};
+
+			var parentEntity = new CustomFunctions.Entity("Parent Entity", parentProperties);
+			return parentEntity;
+		}
+
+		case 4: {
+			var properties = {
+				"Info": [
+					["Bold", true],
+					["Underline", false],
+					["Font", 12]
+				],
+				"Sign": true
+			};
+			var Entity = new CustomFunctions.Entity("Document", properties);
+			return Entity;
+		}
+
+		case 5: {
+			var properties = {
+				"SomeNumber": 1234
+			};
+			properties[STRING_LENGTH_256] = "A long string";
+
+			var Entity = new CustomFunctions.Entity("InvalidProperty", properties);
+			return Entity;
+		}
+
+		case 6: {
+			var properties = {
+				"SomeNumber": 1234
+			};
+
+			var Entity = new CustomFunctions.Entity(STRING_LENGTH_256, properties);
+			return Entity;
+		}
+
+		case 7: {
+			var Entity = new CustomFunctions.Entity("No property");
+			return Entity;
+		}
+
+		default: {
+			return "Invalid entityCase"
+		}
+	}
+}
+exports.customFunctionReturnEntity = customFunctionReturnEntity;
+
+function customFunctionReturnEntityArray(entityCase) {
+	switch (entityCase) {
+		case 1: {
+			var Entity1 = new CustomFunctions.Entity("First Entity", {
+				"Category": "First",
+				"Priority": 3
+			});
+			var Entity2 = new CustomFunctions.Entity("Second Entity", {
+				"Category": "Second",
+				"Priority": 1
+			});
+			return [[Entity1], [Entity2]];
+		}
+
+		case 2: {
+			var Entity1 = new CustomFunctions.Entity("First Entity", {
+				"Category": "First",
+				"Priority": 3
+			});
+			var Entity2 = new CustomFunctions.Entity("Second Entity", {
+				"Category": "Second",
+				"Priority": 1
+			});
+			return [
+				["First", Entity1],
+				["Second", Entity2]
+			];
+		}
+
+		default: {
+			return "Invalid entityCase"
+		}
+	}
+}
+
+exports.customFunctionReturnEntityArray = customFunctionReturnEntityArray;
+
+function customFunctionEntityInput(value, attribute, needStringify) {
+	if (value instanceof CustomFunctions.Entity) {
+		if (attribute == "display")
+			return value.display;
+		else
+		{
+			if (needStringify)
+			{
+				return JSON.stringify(value.properties[attribute]);
+			}
+			else
+			{
+				return value.properties[attribute].primitive;
+			}
+		}
+	}
+	else {
+		return "no richData detected";
+	}
+}
+
+exports.customFunctionEntityInput = customFunctionEntityInput;
+
+function customFunctionEntityInputArray(value) {
+	var ret = [];
+	var oneRow = [];
+	if (value instanceof Array)
+	{
+		for (var i = 0; i < value.length; ++i) {
+			for (var j = 0; j < value[i].length; ++j) {
+				if (value[i][j] instanceof CustomFunctions.Entity) {
+					oneRow.push(value[i][j].display + " detected");
+				}
+				else {
+					oneRow.push(value[i][j]);
+				}
+			}
+		}
+	}
+
+	ret.push(oneRow);
+	return ret;
+}
+
+exports.customFunctionEntityInputArray = customFunctionEntityInputArray;
+
+function formattedNumberReturn(formattedNumberCase) {
+	switch (formattedNumberCase) {
+		case 1: {
+			var formattedNumber = new CustomFunctions.FormattedNumber(
+				1.234,
+				"0.00"
+			);
+			return formattedNumber;
+		}
+		case 2: {
+			var formattedNumber = new CustomFunctions.FormattedNumber(
+				1.234,
+				"$#,##0.00"
+			);
+			return formattedNumber;
+		}
+		break;
+		case 3: {
+			var formattedNumber = new CustomFunctions.FormattedNumber(
+				1.23,
+				"_($* #,##0.00_);_($* (#,##0.00);_($*??_);_(@_)"
+			);
+			return formattedNumber;
+		}
+		break;
+		case 4: {
+			var formattedNumber = new CustomFunctions.FormattedNumber(
+				43789,
+				"m/d/yyyy"
+			);
+			return formattedNumber;
+		}
+		break;
+		case 5: {
+			var formattedNumber = new CustomFunctions.FormattedNumber(
+				45678,
+				"[$-x-systime]h:mm:ss AM/PM"
+			);
+			return formattedNumber;
+		}
+		break;
+		case 6: {
+			var formattedNumber = new CustomFunctions.FormattedNumber(
+				12345678,
+				"0.00E+00"
+			);
+			return formattedNumber;
+		}
+		break;
+		case 7: {
+			var formattedNumber = new CustomFunctions.FormattedNumber(
+				1.23,
+				"0.00%"
+			);
+			return formattedNumber;
+		}
+		break;
+		case 8: {
+			var formattedNumber = new CustomFunctions.FormattedNumber(
+				1.23,
+				"0.00%"
+			);
+			return JSON.stringify(formattedNumber);
+		}
+		break;
+		default: {
+			return "Invalid formattedNumberCase";
+		}
+		break;
+	}
+}
+
+exports.formattedNumberReturn = formattedNumberReturn;
+
+function formattedNumberReturnArray(formattedNumberCase) {
+	switch (formattedNumberCase) {
+		case 1: {
+			var formattedNumber = new CustomFunctions.FormattedNumber(
+				1.234,
+				"0.00"
+			);
+			return [['Hello'],[formattedNumber]];
+		}
+		case 2: {
+			var formattedNumber1 = new CustomFunctions.FormattedNumber(
+				1.234,
+				"0.00"
+			);
+			var formattedNumber2 = new CustomFunctions.FormattedNumber(
+				1.234,
+				"$#,##0.00"
+			);
+			return [[formattedNumber1],[formattedNumber2]];
+		}
+		default: {
+			return "Invalid formattedNumberCase"
+		}
+	}
+}
+
+exports.formattedNumberReturnArray = formattedNumberReturnArray;
 /**
  * Writes a message to console.log().
  * @customfunction LOG
@@ -765,6 +1033,12 @@ CustomFunctions.associate("customErrorInputInvalidArray", customErrorInputInvali
 CustomFunctions.associate("customErrorInput2", customErrorInput2);
 CustomFunctions.associate("customErrorTest", customErrorTest);
 CustomFunctions.associate("customErrorTest2", customErrorTest2);
+CustomFunctions.associate("customFunctionReturnEntity", customFunctionReturnEntity);
+CustomFunctions.associate("customFunctionReturnEntityArray", customFunctionReturnEntityArray);
+CustomFunctions.associate("customFunctionEntityInput", customFunctionEntityInput);
+CustomFunctions.associate("customFunctionEntityInputArray", customFunctionEntityInputArray);
+CustomFunctions.associate("formattedNumberReturn", formattedNumberReturn);
+CustomFunctions.associate("formattedNumberReturnArray", formattedNumberReturnArray);
 /***/ })
 
 /******/ });

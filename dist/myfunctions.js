@@ -869,7 +869,7 @@ function customFunctionEntityInput(value, attribute, needStringify) {
 			}
 			else
 			{
-				return value.properties[attribute].primitive;
+				return value.properties[attribute];
 			}
 		}
 	}

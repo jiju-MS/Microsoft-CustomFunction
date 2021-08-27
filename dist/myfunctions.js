@@ -93,101 +93,38 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
+	"use strict";
 
-/**
- * Adds two numbers.
- * @customfunction
- * @param first First number
- * @param second Second number
- * @returns The sum of the two numbers.
- */
-
-/* global clearInterval, console, setInterval */
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-function add(first, second) {
-  return first + second;
-}
-
-exports.add = add;
-
-function customErrorReturn(errorMessage) {
-	var error = new CustomFunctions.Error(
-		CustomFunctions.ErrorCode.notAvailable,	// #N/A
-		errorMessage
-	);
-	return error;
-}
-
-exports.customErrorReturn = customErrorReturn;
-
-function customErrorInput(inputAllowError) {
-	if (inputAllowError instanceof CustomFunctions.Error) {
-		return "errorCode is: " + inputAllowError.code;
+	/**
+	 * Adds two numbers.
+	 * @customfunction
+	 * @param first First number
+	 * @param second Second number
+	 * @returns The sum of the two numbers.
+	 */
+	
+	/* global clearInterval, console, setInterval */
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	function add(first, second) {
+	  return first + second + 20000;
 	}
-	else {
-		return "no error detected";
-	}
-}
-
-exports.customErrorInput = customErrorInput;
-
-function customFunctionReturnEntity(name, email, age) {
-	var properties = {
-		"Name": name,
-		"Email": email,
-		"Age": age
-	};
-	var Entity = new CustomFunctions.Entity(name, properties);
-	return Entity;
-}
-exports.customFunctionReturnEntity = customFunctionReturnEntity;
-
-function customFunctionEntityInput(value, attribute) {
-	if (value instanceof CustomFunctions.Entity) {
-		if (attribute == "display")
-			return value.display;
-		else
-		{
-			return value.properties[attribute];
-		}
-	}
-	else {
-		return "no richData detected";
-	}
-}
-
-exports.customFunctionEntityInput = customFunctionEntityInput;
-
-function formattedNumberReturn(value, format) {
-	var formattedNumber = new CustomFunctions.FormattedNumber(
-		value,
-		format
-	);
-	return formattedNumber;
-}
-
-exports.formattedNumberReturn = formattedNumberReturn;
-
-/**
- * Writes a message to console.log().
- * @customfunction LOG
- * @param message String to write.
- * @returns String to write.
- */
-exports.logMessage = logMessage;
-
-CustomFunctions.associate("ADD", add);
-CustomFunctions.associate("customErrorReturn", customErrorReturn);
-CustomFunctions.associate("customErrorInput", customErrorInput);
-CustomFunctions.associate("customFunctionReturnEntity", customFunctionReturnEntity);
-CustomFunctions.associate("customFunctionEntityInput", customFunctionEntityInput);
-CustomFunctions.associate("formattedNumberReturn", formattedNumberReturn);
-/***/ })
-
-/******/ });
-//# sourceMappingURL=functions.js.map
+	
+	exports.add = add;
+	
+	/**
+	 * Writes a message to console.log().
+	 * @customfunction LOG
+	 * @param message String to write.
+	 * @returns String to write.
+	 */
+	exports.logMessage = logMessage;
+	
+	CustomFunctions.associate("ADD", add);
+	/***/ })
+	
+	/******/ });
+	//# sourceMappingURL=functions.js.map

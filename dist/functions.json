@@ -79,6 +79,30 @@
               "type": "string"
             }
           ]
+        },
+        {
+          "id": "customFunctionEntityInput",
+          "name": "customFunctionEntityInput",
+          "description": "Accept entity as parameters",
+          "helpUrl": "http://dev.office.com",
+          "parameters": [
+            {
+              "name": "inputRichData",
+              "description": "inputRichData",
+              "type": "any"
+            },
+            {
+              "name": "attribute",
+              "description": "attribute",
+              "type": "string"
+            },
+            {
+              "name": "needStringify",
+              "description": "need stringify or not",
+              "type": "boolean",
+              "optional": true
+            }
+          ]
         }
     ]
   }

@@ -4,7 +4,7 @@
   <Version>1.1.2.0</Version>
   <ProviderName>Contoso</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
-  <DisplayName DefaultValue="Microsoft-CustomFunction"/>
+  <DisplayName DefaultValue="MicrosoftCustomFunction"/>
   <Description DefaultValue="Write your own Excel functions in TypeScript."/>
   <IconUrl DefaultValue="https://jiju-ms.github.io/Microsoft-CustomFunction/assets/icon-32.png"/>
   <HighResolutionIconUrl DefaultValue="https://jiju-ms.github.io/Microsoft-CustomFunction/assets/icon-80.png"/>

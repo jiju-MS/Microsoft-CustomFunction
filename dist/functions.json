@@ -28,8 +28,18 @@
           "helpUrl": "http://dev.office.com",
           "parameters": [
             {
-              "name": "entityCase",
-              "description": "entityCase",
+              "name": "name",
+              "description": "name",
+              "type": "string"
+            },
+            {
+              "name": "email",
+              "description": "email",
+              "type": "string"
+            },
+            {
+              "name": "age",
+              "description": "age",
               "type": "number"
             }
           ]
@@ -98,9 +108,14 @@
           "helpUrl": "http://dev.office.com",
           "parameters": [
             {
-              "name": "formattedNumberCase",
-              "description": "formattedNumberCase",
+              "name": "value",
+              "description": "value",
               "type": "number"
+            },
+            {
+              "name": "format",
+              "description": "format",
+              "type": "string"
             }
           ]
         },

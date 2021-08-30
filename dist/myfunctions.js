@@ -115,86 +115,14 @@
 	
 	exports.add = add;
 	
-	function customFunctionReturnEntity(entityCase) {
-		switch (entityCase) {
-			case 1: {
-				var properties = {
-					"Category": "Communications",
-					"SomeNumber": 1234
-				};
-				var Entity = new CustomFunctions.Entity("[Communications] XYZ Telecom", properties);
-				return Entity;
-			}
-	
-			case 2: {
-				var arrayProperties = {
-					"Children": [
-						["Mary"],
-						["Jane"]
-					],
-					"Zip Code": 9001
-				};
-				var Entity = new CustomFunctions.Entity("Bob", arrayProperties);
-				return Entity;
-			}
-	
-			case 3: {
-				var nestedProperties = {
-					"foo": "bar",
-					"price": 5
-				};
-	
-				var nestedEntity = new CustomFunctions.Entity("Nested Entity", nestedProperties);
-	
-				var parentProperties = {
-					"nested": nestedEntity
-				};
-	
-				var parentEntity = new CustomFunctions.Entity("Parent Entity", parentProperties);
-				return parentEntity;
-			}
-	
-			case 4: {
-				var properties = {
-					"Info": [
-						["Bold", true],
-						["Underline", false],
-						["Font", 12]
-					],
-					"Sign": true
-				};
-				var Entity = new CustomFunctions.Entity("Document", properties);
-				return Entity;
-			}
-	
-			case 5: {
-				var properties = {
-					"SomeNumber": 1234
-				};
-				properties[STRING_LENGTH_256] = "A long string";
-	
-				var Entity = new CustomFunctions.Entity("InvalidProperty", properties);
-				return Entity;
-			}
-	
-			case 6: {
-				var properties = {
-					"SomeNumber": 1234
-				};
-	
-				var Entity = new CustomFunctions.Entity(STRING_LENGTH_256, properties);
-				return Entity;
-			}
-	
-			case 7: {
-				var Entity = new CustomFunctions.Entity("No property");
-				return Entity;
-			}
-	
-			default: {
-				return "Invalid entityCase"
-			}
-		}
+	function customFunctionReturnEntity(name, email, age) {
+		var properties = {
+			"Name": name,
+			"Email": email,
+			"Age": age
+		};
+		var Entity = new CustomFunctions.Entity(name, properties);
+		return Entity;
 	}
 	exports.customFunctionReturnEntity = customFunctionReturnEntity;
 	
@@ -281,107 +209,16 @@
 	
 	exports.customFunctionEntityInputArray = customFunctionEntityInputArray;
 	
-	function formattedNumberReturn(formattedNumberCase) {
-		switch (formattedNumberCase) {
-			case 1: {
-				var formattedNumber = new CustomFunctions.FormattedNumber(
-					1.234,
-					"0.00"
-				);
-				return formattedNumber;
-			}
-			case 2: {
-				var formattedNumber = new CustomFunctions.FormattedNumber(
-					1.234,
-					"$#,##0.00"
-				);
-				return formattedNumber;
-			}
-			break;
-			case 3: {
-				var formattedNumber = new CustomFunctions.FormattedNumber(
-					1.23,
-					"_($* #,##0.00_);_($* (#,##0.00);_($*??_);_(@_)"
-				);
-				return formattedNumber;
-			}
-			break;
-			case 4: {
-				var formattedNumber = new CustomFunctions.FormattedNumber(
-					43789,
-					"m/d/yyyy"
-				);
-				return formattedNumber;
-			}
-			break;
-			case 5: {
-				var formattedNumber = new CustomFunctions.FormattedNumber(
-					45678,
-					"[$-x-systime]h:mm:ss AM/PM"
-				);
-				return formattedNumber;
-			}
-			break;
-			case 6: {
-				var formattedNumber = new CustomFunctions.FormattedNumber(
-					12345678,
-					"0.00E+00"
-				);
-				return formattedNumber;
-			}
-			break;
-			case 7: {
-				var formattedNumber = new CustomFunctions.FormattedNumber(
-					1.23,
-					"0.00%"
-				);
-				return formattedNumber;
-			}
-			break;
-			case 8: {
-				var formattedNumber = new CustomFunctions.FormattedNumber(
-					1.23,
-					"0.00%"
-				);
-				return JSON.stringify(formattedNumber);
-			}
-			break;
-			default: {
-				return "Invalid formattedNumberCase";
-			}
-			break;
-		}
+	function formattedNumberReturn(value, format) {
+		var formattedNumber = new CustomFunctions.FormattedNumber(
+			value,
+			format
+		);
+		return formattedNumber;
 	}
 	
 	exports.formattedNumberReturn = formattedNumberReturn;
-	
-	function formattedNumberReturnArray(formattedNumberCase) {
-		switch (formattedNumberCase) {
-			case 1: {
-				var formattedNumber = new CustomFunctions.FormattedNumber(
-					1.234,
-					"0.00"
-				);
-				return [['Hello'],[formattedNumber]];
-			}
-			case 2: {
-				var formattedNumber1 = new CustomFunctions.FormattedNumber(
-					1.234,
-					"0.00"
-				);
-				var formattedNumber2 = new CustomFunctions.FormattedNumber(
-					1.234,
-					"$#,##0.00"
-				);
-				return [[formattedNumber1],[formattedNumber2]];
-			}
-			default: {
-				return "Invalid formattedNumberCase"
-			}
-		}
-	}
-	
-	exports.formattedNumberReturnArray = formattedNumberReturnArray;
+
 	/**
 	 * Writes a message to console.log().
 	 * @customfunction LOG
@@ -396,7 +233,6 @@
 	CustomFunctions.associate("customFunctionEntityInput", customFunctionEntityInput);
 	CustomFunctions.associate("customFunctionEntityInputArray", customFunctionEntityInputArray);
 	CustomFunctions.associate("formattedNumberReturn", formattedNumberReturn);
-	CustomFunctions.associate("formattedNumberReturnArray", formattedNumberReturnArray);
 	/***/ })
 	
 	/******/ });

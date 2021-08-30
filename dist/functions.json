@@ -51,8 +51,8 @@
           "helpUrl": "http://dev.office.com",
           "parameters": [
             {
-              "name": "inputRichData",
-              "description": "inputRichData",
+              "name": "value",
+              "description": "value",
               "type": "any"
             },
             {

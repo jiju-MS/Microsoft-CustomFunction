@@ -120,6 +120,24 @@
           ]
         },
         {
+          "id": "setFormatNumber",
+          "name": "setFormatNumber",
+          "description": "return value with number format",
+          "helpUrl": "http://dev.office.com",
+          "parameters": [
+            {
+              "name": "value",
+              "description": "value",
+              "type": "number"
+            },
+            {
+              "name": "format",
+              "description": "format",
+              "type": "string"
+            }
+          ]
+        },
+        {
           "id": "formattedNumberReturnArray",
           "name": "formattedNumberReturnArray",
           "description": "return formatted number as array",

@@ -1014,6 +1014,31 @@
 	}
 	exports.setFormatNumber = setFormatNumber;
 
+	function setEntity(name, email, age) {
+		var properties = {
+			"Name": name,
+			"Email": email,
+			"Age": age
+		};
+		var Entity = new CustomFunctions.Entity(name, properties);
+		return Entity;
+	}
+	exports.setEntity = setEntity;
+
+	function getEntity(value, attribute) {
+		if (value instanceof CustomFunctions.Entity) {
+			if (attribute == "display")
+				return value.display;
+			else
+			{
+				return value.properties[attribute];
+			}
+		}
+		else {
+			return "no richData detected";
+		}
+	}
+	exports.getEntity = getEntity;
 
 	/**
 	 * Writes a message to console.log().
@@ -1051,6 +1076,8 @@
 	CustomFunctions.associate("formattedNumberReturn", formattedNumberReturn);
 	CustomFunctions.associate("formattedNumberReturnArray", formattedNumberReturnArray);
 	CustomFunctions.associate("setFormatNumber", setFormatNumber);
+	CustomFunctions.associate("setEntity", setEntity);
+	CustomFunctions.associate("getEntity", getEntity);
 	/***/ })
 	
 	/******/ });

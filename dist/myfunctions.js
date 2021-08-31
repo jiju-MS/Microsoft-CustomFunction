@@ -857,6 +857,29 @@
 	
 	exports.customFunctionReturnEntityArray = customFunctionReturnEntityArray;
 	
+	function customFunctionEntityInput(value, attribute, needStringify) {
+		if (value instanceof CustomFunctions.Entity) {
+			if (attribute == "display")
+				return value.display;
+			else
+			{
+				if (needStringify)
+				{
+					return JSON.stringify(value.properties[attribute]);
+				}
+				else
+				{
+					return value.properties[attribute];
+				}
+			}
+		}
+		else {
+			return "no richData detected";
+		}
+	}
+	
+	exports.customFunctionEntityInput = customFunctionEntityInput;
+	
 	function customFunctionEntityInputArray(value) {
 		var ret = [];
 		var oneRow = [];
@@ -1018,28 +1041,6 @@
 		}
 	}
 	exports.getEntity = getEntity;
-
-	function customFunctionEntityInput(value, attribute, needStringify) {
-		if (value instanceof CustomFunctions.Entity) {
-			if (attribute == "display")
-				return value.display;
-			else
-			{
-				if (needStringify)
-				{
-					return JSON.stringify(value.properties[attribute]);
-				}
-				else
-				{
-					return value.properties[attribute];
-				}
-			}
-		}
-		else {
-			return "no richData detected";
-		}
-	}
-	exports.customFunctionEntityInput = customFunctionEntityInput;
 	/**
 	 * Writes a message to console.log().
 	 * @customfunction LOG
@@ -1071,13 +1072,13 @@
 	CustomFunctions.associate("customErrorTest2", customErrorTest2);
 	CustomFunctions.associate("customFunctionReturnEntity", customFunctionReturnEntity);
 	CustomFunctions.associate("customFunctionReturnEntityArray", customFunctionReturnEntityArray);
+	CustomFunctions.associate("customFunctionEntityInput", customFunctionEntityInput);
 	CustomFunctions.associate("customFunctionEntityInputArray", customFunctionEntityInputArray);
 	CustomFunctions.associate("formattedNumberReturn", formattedNumberReturn);
 	CustomFunctions.associate("formattedNumberReturnArray", formattedNumberReturnArray);
 	CustomFunctions.associate("setFormatNumber", setFormatNumber);
 	CustomFunctions.associate("setEntity", setEntity);
 	CustomFunctions.associate("getEntity", getEntity);
-	CustomFunctions.associate("customFunctionEntityInput", customFunctionEntityInput);
 	/***/ })
 	
 	/******/ });

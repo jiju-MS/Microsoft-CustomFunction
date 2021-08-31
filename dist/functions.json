@@ -1,108 +1,539 @@
 {
-    "functions": 
-    [
-        {
-            "description": "Adds two numbers.",
-            "id": "ADD",
-            "name": "ADD",
-            "parameters": [
-                {
-                    "description": "First number",
-                    "name": "first",
-                    "type": "number"
-                },
-                {
-                    "description": "Second number",
-                    "name": "second",
-                    "type": "number"
-                }
-            ],
-            "result": {
-                "type": "number"
-            }
-        },
-        {
-          "id": "setEntity",
-          "name": "setEntity",
-          "description": "return value with rich data",
+  "allowErrorForDataTypeAny":true,
+  "allowRichDataForDataTypeAny":true,
+  "functions": [
+      {
+          "description": "Adds two numbers.",
+          "id": "ADD",
+          "name": "ADD",
+          "parameters": [
+              {
+                  "description": "First number",
+                  "name": "first",
+                  "type": "number"
+              },
+              {
+                  "description": "Second number",
+                  "name": "second",
+                  "type": "number"
+              }
+          ],
+          "result": {
+              "type": "number"
+          }
+      },
+      {
+          "id": "customErrorOut",
+          "name": "customErrorOut",
+          "description": "Custom errors out",
           "helpUrl": "http://dev.office.com",
           "parameters": [
             {
-              "name": "name",
-              "description": "name",
-              "type": "string"
-            },
-            {
-              "name": "email",
-              "description": "email",
-              "type": "string"
-            },
-            {
-              "name": "age",
-              "description": "age",
+              "name": "errorCase",
+              "description": "error case",
               "type": "number"
             }
           ]
-        },
-        {
-          "id": "getEntity",
-          "name": "getEntity",
-          "description": "Accept entity as parameters",
+      },
+      {
+          "id": "customErrorReturn",
+          "name": "customErrorReturn",
+          "description": "Custom errors as return value",
           "helpUrl": "http://dev.office.com",
           "parameters": [
             {
-              "name": "value",
-              "description": "value",
-              "type": "any"
-            },
-            {
-              "name": "attribute",
-              "description": "attribute",
-              "type": "string"
-            }
-          ]
-        },
-        {
-          "id": "setFormatNumber",
-          "name": "setFormatNumber",
-          "description": "return value with number format",
-          "helpUrl": "http://dev.office.com",
-          "parameters": [
-            {
-              "name": "value",
-              "description": "value",
+              "name": "errorCase",
+              "description": "error case",
               "type": "number"
-            },
-            {
-              "name": "format",
-              "description": "format",
-              "type": "string"
             }
           ]
-        },
-        {
-          "id": "customFunctionEntityInput",
-          "name": "customFunctionEntityInput",
-          "description": "Accept entity as parameters",
+      },
+      {
+          "id": "customErrorReturnArray",
+          "name": "customErrorReturnArray",
+          "description": "Custom errors as return array",
           "helpUrl": "http://dev.office.com",
+          "result": {
+            "dimensionality": "matrix"
+          },
           "parameters": [
             {
-              "name": "inputRichData",
-              "description": "inputRichData",
+              "name": "errorCase",
+              "description": "error case",
+              "type": "number"
+            }
+          ]
+      },
+      {
+          "id": "customErrorTest",
+          "name": "customErrorTest",
+          "description": "Custom errors as input value",
+          "helpUrl": "http://dev.office.com",
+          "parameters": [
+          {
+              "name": "singleAny",
+              "description": "allow error",
               "type": "any"
-            },
+          },
+          {
+              "name": "singleString",
+              "description": "allow error optional",
+              "type": "string"
+          },
+          {
+              "name": "singleDefault",
+              "description": "allow error optional"
+          },
+          {
+              "name": "multipleAny",
+              "description": "allow error optional",
+              "type": "any",
+              "dimensionality": "matrix"
+          },
+          {
+              "name": "multipleDefault",
+              "description": "allow error optional",
+              "dimensionality": "matrix"
+          },
+          {
+              "name": "multipleString",
+              "description": "allow error optional",
+              "type": "string",
+              "dimensionality": "matrix"
+          }
+          ]
+      },
+      {
+          "id": "customErrorTest2",
+          "name": "customErrorTest2",
+          "description": "Custom errors as input value",
+          "helpUrl": "http://dev.office.com",
+          "parameters": [
+          {
+              "name": "singleAny",
+              "description": "allow error",
+              "type": "any"
+          },
+          {
+              "name": "singleString",
+              "description": "allow error optional",
+              "type": "string"
+          },
+          {
+              "name": "singleDefault",
+              "description": "allow error optional"
+          },
+          {
+              "name": "multipleAny",
+              "description": "allow error optional",
+              "type": "any",
+              "dimensionality": "matrix"
+          },
+          {
+              "name": "multipleDefault",
+              "description": "allow error optional",
+              "dimensionality": "matrix"
+          },
+          {
+              "name": "multipleString",
+              "description": "allow error optional",
+              "type": "string",
+              "dimensionality": "matrix"
+          }
+          ]
+      },
+      {
+          "id": "customErrorInput",
+          "name": "customErrorInput",
+          "description": "Custom errors as input value",
+          "helpUrl": "http://dev.office.com",
+          "parameters": [
+          {
+              "name": "inputAllowError",
+              "description": "allow error",
+              "type": "any"
+          },
+          {
+              "name": "inputAllowErrorOptional",
+              "description": "allow error optional",
+              "type": "any",
+              "optional": true
+          },
+          {
+              "name": "inputAllowErrorRepeating",
+              "description": "allow error repeating",
+              "type": "any",
+              "optional": true,
+              "repeating": true
+          }
+          ]
+      },
+      {
+          "id": "customErrorInputInvalid",
+          "name": "customErrorInputInvalid",
+          "description": "Custom errors as input value in some paramters",
+          "helpUrl": "http://dev.office.com",
+          "result": {
+          "dimensionality": "matrix"
+          },
+          "parameters": [
+          {
+              "name": "numberAllowError",
+              "description": "allow error when type is number",
+              "type": "number"
+          },
+          {
+              "name": "stringAllowError",
+              "description": "allow error when type is string",
+              "type": "string"
+          },
+          {
+              "name": "boolAllowError",
+              "description": "allow error when type is bool",
+              "type": "boolean"
+          }
+          ]
+      },
+      {
+          "id": "customErrorInputArray",
+          "name": "customErrorInputArray",
+          "description": "Custom errors as input value array",
+          "helpUrl": "http://dev.office.com",
+          "result": {
+          "dimensionality": "matrix"
+          },
+          "parameters": [
+          {
+              "name": "inputAllowError",
+              "description": "allow error",
+              "type": "any",
+              "dimensionality": "matrix"
+          }
+          ]
+      },
+      {
+          "id": "customErrorInputInvalidArray",
+          "name": "customErrorInputInvalidArray",
+          "description": "Custom errors as input value array without any",
+          "helpUrl": "http://dev.office.com",
+          "result": {
+          "dimensionality": "matrix"
+          },
+          "parameters": [
+          {
+              "name": "inputAllowError",
+              "description": "allow error",
+              "type": "number",
+              "dimensionality": "matrix"
+          }
+          ]
+      },
+      {
+          "id": "GetParameterAddresses",
+          "name": "GetParameterAddresses",
+          "description": "Get Three Parameter Addresses",
+          "helpUrl": "http://dev.office.com",
+          "result": {
+            "dimensionality": "matrix"
+          },
+          "parameters": [
             {
-              "name": "attribute",
-              "description": "attribute",
+              "name": "firstParameter",
+              "description": "First Parameter",
               "type": "string"
             },
             {
-              "name": "needStringify",
-              "description": "need stringify or not",
-              "type": "boolean",
+              "name": "secondParameter",
+              "description": "Second Parameter",
+              "type": "string"
+            },
+            {
+              "name": "thirdParameter",
+              "description": "Third Parameter",
+              "type": "string"
+            }
+          ],
+          "options": {
+            "requiresParameterAddresses": true
+          }
+      },
+      {
+          "id": "GetParameterAddressesRepeating",
+          "name": "GetParameterAddressesRepeating",
+          "description": "Get Two Parameter Addresses And The Second One Is Repeating",
+          "helpUrl": "http://dev.office.com",
+          "result": {
+            "dimensionality": "matrix"
+          },
+          "parameters": [
+            {
+              "name": "firstParameter",
+              "description": "First Parameter",
+              "type": "string"
+            },
+            {
+              "name": "secondParameter",
+              "description": "Second Parameter That Is Repeating",
+              "type": "string",
+              "repeating": true
+            }
+          ],
+          "options": {
+            "requiresParameterAddresses": true
+          }
+      },
+      {
+          "id": "GetParameterAddressesOptional",
+          "name": "GetParameterAddressesOptional",
+          "description": "Get Two Parameter Addresses And The Second One Is Optional",
+          "helpUrl": "http://dev.office.com",
+          "result": {
+            "dimensionality": "matrix"
+          },
+          "parameters": [
+            {
+              "name": "firstParameter",
+              "description": "First Parameter",
+              "type": "string"
+            },
+            {
+              "name": "secondParameter",
+              "description": "Second Parameter That Is Optional",
+              "type": "string",
               "optional": true
             }
+          ],
+          "options": {
+            "requiresParameterAddresses": true
+          }
+      },
+      {
+          "id": "GetParameterAddressesRange",
+          "name": "GetParameterAddressesRange",
+          "description": "Get Two Parameter Addresses And The Second One Is Range",
+          "helpUrl": "http://dev.office.com",
+          "result": {
+            "dimensionality": "matrix"
+          },
+          "parameters": [
+            {
+              "name": "firstParameter",
+              "description": "First Parameter",
+              "type": "string"
+            },
+            {
+              "name": "secondParameter",
+              "description": "Second Parameter That Is Range",
+              "type": "any",
+              "dimensionality": "matrix"
+            }
+          ],
+          "options": {
+            "requiresParameterAddresses": true
+          }
+      },
+      {
+          "id": "GetParameterAddressesFalse",
+          "name": "GetParameterAddressesFalse",
+          "description": "Get Parameter Addresses When Set False",
+          "helpUrl": "http://dev.office.com",
+          "result": {
+            "type": "string"
+          },
+          "parameters": [
+            {
+              "name": "firstParameter",
+              "description": "First Parameter",
+              "type": "string"
+            },
+            {
+              "name": "secondParameter",
+              "description": "Second Parameter",
+              "type": "string"
+            }
+          ],
+          "options": {
+            "requiresParameterAddresses": false
+          }
+      },
+      {
+          "id": "GetParameterAddressesOff",
+          "name": "GetParameterAddressesOff",
+          "description": "Get Parameter Addresses When Feature Off",
+          "helpUrl": "http://dev.office.com",
+          "result": {
+            "type": "string"
+          },
+          "parameters": [
+            {
+              "name": "firstParameter",
+              "description": "First Parameter",
+              "type": "string"
+            },
+            {
+              "name": "secondParameter",
+              "description": "Second Parameter",
+              "type": "string"
+            }
           ]
-        }
-    ]
-  }
+      },
+      {
+        "id": "customFunctionReturnEntity",
+        "name": "customFunctionReturnEntity",
+        "description": "return value with rich data",
+        "helpUrl": "http://dev.office.com",
+        "parameters": [
+          {
+            "name": "entityCase",
+            "description": "entityCase",
+            "type": "number"
+          }
+        ]
+      },
+      {
+        "id": "customFunctionReturnEntityArray",
+        "name": "customFunctionReturnEntityArray",
+        "description": "return array with rich data",
+        "helpUrl": "http://dev.office.com",
+        "result": {
+          "dimensionality": "matrix"
+        },
+        "parameters": [
+          {
+            "name": "entityCase",
+            "description": "entityCase",
+            "type": "number"
+          }
+        ]
+      },
+      {
+        "id": "customFunctionEntityInput",
+        "name": "customFunctionEntityInput",
+        "description": "Accept entity as parameters",
+        "helpUrl": "http://dev.office.com",
+        "parameters": [
+          {
+            "name": "inputRichData",
+            "description": "inputRichData",
+            "type": "any"
+          },
+          {
+            "name": "attribute",
+            "description": "attribute",
+            "type": "string"
+          },
+          {
+            "name": "needStringify",
+            "description": "need stringify or not",
+            "type": "boolean",
+            "optional": true
+          }
+        ]
+      },
+      {
+        "id": "customFunctionEntityInputArray",
+        "name": "customFunctionEntityInputArray",
+        "description": "Accept entity as parameters in array",
+        "helpUrl": "http://dev.office.com",
+        "result": {
+          "dimensionality": "matrix"
+        },
+        "parameters": [
+          {
+            "name": "value",
+            "description": "allow entity",
+            "type": "any",
+            "dimensionality": "matrix"
+          }
+        ]
+      },
+      {
+        "id": "formattedNumberReturn",
+        "name": "formattedNumberReturn",
+        "description": "return value with number format",
+        "helpUrl": "http://dev.office.com",
+        "parameters": [
+          {
+            "name": "formattedNumberCase",
+            "description": "formattedNumberCase",
+            "type": "number"
+          }
+        ]
+      },
+      {
+        "id": "formattedNumberReturnArray",
+        "name": "formattedNumberReturnArray",
+        "description": "return formatted number as array",
+        "helpUrl": "http://dev.office.com",
+        "result": {
+          "dimensionality": "matrix"
+        },
+        "parameters": [
+          {
+            "name": "formattedNumberCase",
+            "description": "formattedNumber Case",
+            "type": "number"
+          }
+        ]
+      },
+      {
+        "id": "setEntity",
+        "name": "setEntity",
+        "description": "return value with rich data",
+        "helpUrl": "http://dev.office.com",
+        "parameters": [
+          {
+            "name": "name",
+            "description": "name",
+            "type": "string"
+          },
+          {
+            "name": "email",
+            "description": "email",
+            "type": "string"
+          },
+          {
+            "name": "age",
+            "description": "age",
+            "type": "number"
+          }
+        ]
+      },
+      {
+        "id": "getEntity",
+        "name": "getEntity",
+        "description": "Accept entity as parameters",
+        "helpUrl": "http://dev.office.com",
+        "parameters": [
+          {
+            "name": "value",
+            "description": "value",
+            "type": "any"
+          },
+          {
+            "name": "attribute",
+            "description": "attribute",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "id": "setFormatNumber",
+        "name": "setFormatNumber",
+        "description": "return value with number format",
+        "helpUrl": "http://dev.office.com",
+        "parameters": [
+          {
+            "name": "value",
+            "description": "value",
+            "type": "number"
+          },
+          {
+            "name": "format",
+            "description": "format",
+            "type": "string"
+          }
+        ]
+      }
+  ]
+}
